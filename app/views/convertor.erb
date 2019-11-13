@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>CONVERTOR</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  
+  <!-- css styling -->
+
+	<style> 
+	.jumbotron {
+		margin-left: 30px;
+		margin-right: 30px;
+    margin-top: 30px; 
+    color :black;
+  }
+  .row {
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+  .bg { 
+    background-color: #5c848e; /* Green */
+    color: #ffffff;
+  }
+  
+  </style>
+
+</head >
+  <body class="bg">
+   
+            <!-- Navbar -->
+
+  <nav class="navbar navbar-inverse navbar-collapse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+      	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+  	  	<span class="icon-bar"></span>
+  		  <span class="icon-bar"></span>
+	      </button>
+      	<a class="navbar-brand" href="#"></a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/">Convert</a></li>
+			  	<li><a href="/history">History</a></li>
+		  	</ul>
+      </div>
+     </div>
+  </nav>
+            <!-- Title -->
+
+  <div class="container text-center">
+    <h1>CURRENCY CONVERTOR </h1>      
+    <p>WE MAKE THINGS EASIER FOR YOU...</p>
+  </div>
+
+            <!-- Forms -->
+  <div class='row'>
+   <div class="col-sm-6">
+     <div class="jumbotron text-center">
+        <h2> EUR <span style='font-size:40px;'>&#8596;</span> USD</h2> 
+        <p>one click apart</p>
+      
+            <!-- Form 1 -->
+
+        <form class="form-inline" action="/convert" method="post">
+          <div class="form-group">
+            <select class="form-control" style="background-color : black; color : white ;" name="option" >
+                <option value="EUR/USD"> USD 
+                <span style='font-size:60px;'>&#8594;</span> EUR
+                </option>
+                <option value="USD/EUR"> EUR <span style='font-size:60px;'> &#8594;</span>  USD
+                </option>
+            </select>  
+          </div>
+         <div class="form-group">
+         <input type="text" class="form-control" size="20" placeholder="Amount" name="from" required>
+         </div>
+         <div class="form-group-btn form-group">
+         <button type="submit" class="btn btn-danger">Convert</button>
+         </div><br/><br/>
+      	</form>
+      </div>
+    </div>
+        
+    <div class="col-sm-6">
+       <div class="jumbotron text-center">
+          <h2> EUR <span style='font-size:40px;'>&#8596; </span> CHF</h2> 
+          <p>one click apart</p> 
+
+             <!-- Form 2 -->
+
+            <form class="form-inline" action="/convert" method="post">
+              <div class="form-group">
+              <select class="form-control" style="background-color : black; color : white ;" name="option" >
+               <option value="EUR/CHF"> EUR <span style='font-size:60px;'>&#8594;</span>
+               CHF </option>
+               <option value="CHF/EUR"> CHF <span style='font-size:60px;'> &#8594;</span>
+               EUR </option>
+              </select>  
+               </div>
+              <div class="form-group">
+              <input type="text" class="form-control" size="20" placeholder="Amount" name="from" required>
+              </div>
+              <div class="form-group-btn form-group">
+              <button type="submit" class="btn btn-danger">Convert</button>
+              </div>
+              <br/><br/>
+      	    </form>
+        </div>
+      </div>
+    </div>  
+
+
+           <!-- Convertion result -->
+        <% if error %>
+           <center><h5 style="color : red;" >
+               <%= error %> 
+             </h5></center>
+           <% end %>
+
+       <% if (@convertor != nil ) %>
+       <center><h2> 
+       <%= @convertor.from %> 
+       <span style='font-size:50px; padding : 30px'> &#8594;</span>  
+       <%= @convertor.to %> 
+       </h2></center>
+       <% end %> 
+
+      
+
+  </body>
+</html>

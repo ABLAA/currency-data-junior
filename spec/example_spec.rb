@@ -7,6 +7,17 @@ describe 'Your application' do
     expect(last_response.status).to eq 200
   end
 
-  # todo: Add more tests here
+  it "works!" do
+    get '/convert'
+    expect(last_response.status).to eq 200
+  end
+
+
+  it "history works!" do
+    get '/history'
+    expect(last_response.status).to eq 200
+  end
+
+
 
 end

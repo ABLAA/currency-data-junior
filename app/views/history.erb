@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+			
+				<!-- css styling -->
+
+  <style>
+	.jumbotron {
+		margin-left: 250px;
+		margin-right:250px;
+		margin-top: 10px; 
+		padding : 5px;
+ 	}
+		.row {
+    margin-right: 0px;
+    margin-left: 0px;
+	}  
+	.bg{ 
+	background-color: #5c848e; /* Green */
+	color: #ffffff;
+	}
+	.table {
+	color : black ;
+	}
+
+</style>
+</head >
+
+					<!-- css styling -->	
+
+<body class="bg">
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#"></a>
+			</div>
+    	<div class="navbar-collapse" id="myNavbar">
+    	  <ul class="nav navbar-nav">
+      	  <li><a href="/">Convert</a></li>
+					<li class="active"> <a href="/history">History</a></li>
+	  		</ul>
+    	</div>
+ 		 </div>
+		</nav>
+		 
+						<!-- Page Title -->
+
+		<div class="container text-center">
+			<h1>CURRENCY CONVERTOR </h1><br>   
+			<h2 style='color : black;'>History of currency conversions</h2> 
+		</div>
+
+						<!-- History Table -->
+		
+				<div class="jumbotron">
+ 				<table class="table table-striped center">
+					<thead>
+							<tr>
+								<th scope="col">#</th>
+								<th scope="col">from</th>
+								<th scope="col">to</th>
+								<th scope="col">type Convertion</th>
+							</tr>
+					</thead>
+					<tbody>
+				    
+						<% @convertor.each do |convertor| %>
+							<tr>
+								<th scope="row"><%= convertor.id %></th>
+								<td><%= convertor.from %></td>
+								<td><%= convertor.to %></td>
+								<td><%= convertor.typeConvertor %></td>
+							</tr>
+							<% end %>
+					</tbody>
+					</table>
+			</div>
+
+</body>
+</html>
